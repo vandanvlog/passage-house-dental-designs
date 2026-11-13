@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Passage House Dental - website designs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;background:#F6F4EC;color:#243528;font:400 18px/1.6 Jost,system-ui,sans-serif}
+.w{width:min(1240px,100% - 40px);margin-inline:auto}
+#home header{padding:44px 0 8px;text-align:center}#home header img{height:68px}
+h1{font:600 clamp(2.4rem,5vw,4rem)/1 'Cormorant Garamond',serif;margin:26px 0 12px}
+.lead{max-width:62ch;color:#5C6B5F;margin:0 auto}
+.set{font:600 2.1rem/1.1 'Cormorant Garamond',serif;margin:52px 0 4px}.sub{margin:0 0 4px;color:#5C6B5F}.rule{border:0;height:1px;background:#C2A26C;width:64px;margin:14px 0 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-block:26px 6px}.grid.two{grid-template-columns:repeat(2,1fr)}
+.card{display:flex;flex-direction:column;background:#fff;border:1px solid #DCE3D5;border-radius:22px;overflow:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}.card:hover{transform:translateY(-5px);box-shadow:0 30px 50px -34px rgba(0,0,0,.45)}
+.prev{aspect-ratio:4/3;position:relative;overflow:hidden;border-bottom:1px solid #DCE3D5;background:#eee;cursor:pointer}
+.prev iframe{position:absolute;left:0;top:0;width:1280px;height:960px;border:0;transform-origin:0 0;transform:scale(var(--s,.3));pointer-events:none;background:#fff}
+.body{padding:22px 24px 26px;display:grid;gap:9px}h2{margin:0;font:600 1.9rem/1.1 'Cormorant Garamond',serif}.tag{margin:0;font-weight:600;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:#86672F}.mt{margin:0;font-weight:500}
+.sw{display:flex;gap:8px}.sw i{width:26px;height:26px;border-radius:50%;border:1px solid #0002}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.b{padding:11px 19px;border-radius:999px;background:#2F4A3B;color:#fff;font:500 15.5px Jost,sans-serif;text-decoration:none;border:0;cursor:pointer;transition:transform .3s}.b:hover{transform:translateY(-2px)}.b.g{background:#fff;color:#2F4A3B;box-shadow:inset 0 0 0 1.5px #CFD8C8}
+.notes{border-top:1px solid #DCE3D5;margin-top:52px;padding-block:34px 60px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;color:#5C6B5F;font-size:16px}.notes h3{margin:0 0 8px;color:#243528;font:600 1.4rem 'Cormorant Garamond',serif}
+#loading{position:fixed;inset:0;display:grid;place-items:center;background:#F6F4EC;font:600 1.6rem 'Cormorant Garamond',serif;z-index:50}
+/* viewer */
+#viewer{display:none;height:100%;flex-direction:column;background:#111}
+#bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 12px;background:#16221b;color:#fff;font-size:14.5px}
+#bar button,#bar select{font:500 14px Jost,sans-serif;border:0;border-radius:999px;padding:8px 14px;background:rgba(255,255,255,.12);color:#fff;cursor:pointer}#bar select option{color:#000}
+#bar button:hover{background:rgba(255,255,255,.24)}#bar .sp{flex:1}#bar .pages{display:flex;gap:6px;flex-wrap:wrap}#bar .pages button.on{background:#C2A26C;color:#241b0a}
+#frame{flex:1;width:100%;border:0;background:#fff}
+@media(max-width:900px){.grid,.grid.two,.notes{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="loading">Loading designs…</div>
+<div id="home" hidden>
+  <header class="w"><img id="logo" alt="Passage House Dental Care">
+    <h1>Choose a look for the new website</h1>
+    <p class="lead">Eight complete, clickable websites in this one file. Click a design to open it, hover or tap the Services menu, and try the booking page. Use “All designs” at the top to come back.</p></header>
+  <div id="rows"></div>
+  <section class="w notes"><div><h3>Photography</h3>The pictures are AI-generated stand-ins so you can judge the look. The people shown are not real staff. The practice's live site has no team photos, so real photos of the team and practice are needed.</div>
+  <div><h3>Real information</h3>Address, phone, hours, team names, private fees (2024 guide), Dental Plan price and NHS and urgent-care details come from the current website.</div>
+  <div><h3>Booking</h3>The booking page is a working request form. Before launch it needs connecting to the practice's email or appointment system.</div></section>
+</div>
+<div id="viewer">
+  <div id="bar"><button id="back">← All designs</button><select id="pick" aria-label="Choose design"></select><span class="pages" id="pages"></span><span class="sp"></span><button id="prev">‹ Previous</button><button id="next">Next ›</button></div>
+  <iframe id="frame" title="Website preview"></iframe>
+</div>
+<script id="pack" type="text/plain">/*__DATA__*/</script>
+<script>
+(async function () {
+  var P, blobs = {}, cache = {};
+  async function unpack() {
+    var b64 = document.getElementById('pack').textContent.trim();
+    var bin = Uint8Array.from(atob(b64), function (c) { return c.charCodeAt(0); });
+    var txt = await new Response(new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+    return JSON.parse(txt);
+  }
+  try { P = await unpack(); } catch (e) { document.getElementById('loading').textContent = 'This browser is too old to open this file. Please use a recent Chrome, Edge, Safari or Firefox.'; return; }
+  Object.keys(P.assets).forEach(function (k) {
+    var a = P.assets[k], by = Uint8Array.from(atob(a.b64), function (c) { return c.charCodeAt(0); });
+    blobs[k] = URL.createObjectURL(new Blob([by], { type: a.type }));
+  });
+  var CLICK = '<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[data-go]");if(a){e.preventDefault();parent.postMessage({go:a.getAttribute("data-go")},"*")}});<\/script>';
+  function doc(route) {
+    var id = route.split('/')[0], html = P.pages[route];
+    if (!html) return null;
+    html = html.replace('<!--CSS-->', function () { return '<style>' + P.base + '\n' + P.css[id] + '</style>'; })
+      .replace('<!--JS-->', function () { return '<script>' + P.common + '<\/script>' + (P.extra[id] ? '<script>' + P.extra[id] + '<\/script>' : '') + CLICK; })
+      .replace(/(?:\.\.\/)+shared\/((?:assets|photos)\/[\w.\-]+)/g, function (m, k) { return blobs[k] || m; });
+    return html;
+  }
+  document.getElementById('logo').src = blobs['assets/lockup-moss.png'];
+
+  /* landing cards */
+  var rows = document.getElementById('rows');
+  P.rows.forEach(function (r) {
+    var sec = document.createElement('section'); sec.className = 'w';
+    sec.innerHTML = '<h2 class="set">' + r.title + '</h2><p class="sub">' + r.sub + '</p><hr class="rule"><div class="grid' + (r.ids.length === 2 ? ' two' : '') + '"></div>';
+    var g = sec.querySelector('.grid');
+    r.ids.forEach(function (id) {
+      var d = P.designs.filter(function (x) { return x.id === id; })[0], n = P.designs.indexOf(d) + 1;
+      var c = document.createElement('article'); c.className = 'card';
+      c.innerHTML = '<div class="prev" data-route="' + d.folder + '"></div><div class="body"><p class="tag">Option ' + n + '</p><h2>' + d.name + '</h2><p class="mt">' + d.tag + '</p><p style="margin:0;color:#5C6B5F">' + d.desc + '</p><div class="sw">' + d.sw.map(function (s) { return '<i style="background:' + s + '"></i>'; }).join('') + '</div><div class="links"><button class="b" data-go="' + d.folder + '">Open website</button><button class="b g" data-go="' + d.folder + '/treatments/dental-implants">Service page</button><button class="b g" data-go="' + d.folder + '/book">Booking</button></div></div>';
+      g.appendChild(c);
+    });
+    rows.appendChild(sec);
+  });
+  rows.addEventListener('click', function (e) { var b = e.target.closest('[data-go]'), p = e.target.closest('.prev'); if (b) go(b.dataset.go); else if (p) go(p.dataset.route); });
+  function fit() { document.querySelectorAll('.prev').forEach(function (p) { p.style.setProperty('--s', p.clientWidth / 1280); }); }
+  window.addEventListener('resize', fit);
+  var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { var p = en.target, f = document.createElement('iframe'); f.title = 'Preview'; f.setAttribute('loading', 'lazy'); f.srcdoc = doc(p.dataset.route); p.appendChild(f); io.unobserve(p); } }); }, { rootMargin: '300px' });
+
+  /* viewer */
+  var frame = document.getElementById('frame'), pick = document.getElementById('pick'), pagesEl = document.getElementById('pages');
+  P.designs.forEach(function (d, i) { var o = document.createElement('option'); o.value = d.folder; o.textContent = (i + 1) + '. ' + d.name; pick.appendChild(o); });
+  [['Home', ''], ['Services', '/treatments'], ['Implants', '/treatments/dental-implants'], ['Fees', '/fees'], ['Team', '/team'], ['Contact', '/contact'], ['Book', '/book']].forEach(function (p) { var b = document.createElement('button'); b.textContent = p[0]; b.dataset.suffix = p[1]; pagesEl.appendChild(b); });
+  var cur = '';
+  pagesEl.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) go(cur.split('/')[0] + b.dataset.suffix); });
+  pick.addEventListener('change', function () { go(pick.value); });
+  document.getElementById('back').onclick = function () { go(''); };
+  function step(dir) { var i = P.designs.map(function (d) { return d.folder; }).indexOf(cur.split('/')[0]); i = (i + dir + P.designs.length) % P.designs.length; go(P.designs[i].folder); }
+  document.getElementById('prev').onclick = function () { step(-1); }; document.getElementById('next').onclick = function () { step(1); };
+  window.addEventListener('message', function (e) { if (e.data && typeof e.data.go === 'string') go(e.data.go); });
+  function go(route) { location.hash = route ? '#/' + route : '#/'; }
+  function show() {
+    var route = location.hash.replace(/^#\/?/, '').replace(/\/$/, '');
+    var home = document.getElementById('home'), viewer = document.getElementById('viewer');
+    if (!route || !P.pages[route]) { viewer.style.display = 'none'; frame.removeAttribute('srcdoc'); home.hidden = false; document.body.style.overflow = ''; cur = ''; fit(); document.querySelectorAll('.prev:not([data-seen])').forEach(function (p) { p.dataset.seen = 1; io.observe(p); }); return; }
+    home.hidden = true; viewer.style.display = 'flex'; document.body.style.overflow = 'hidden';
+    cur = route; pick.value = route.split('/')[0];
+    var suffix = route.slice(route.indexOf('/') + 1 === 0 ? route.length : route.indexOf('/'));
+    Array.prototype.forEach.call(pagesEl.children, function (b) { b.classList.toggle('on', b.dataset.suffix === suffix || (b.dataset.suffix === '' && route.indexOf('/') < 0)); });
+    frame.srcdoc = doc(route);
+  }
+  window.addEventListener('hashchange', show);
+  document.getElementById('loading').remove();
+  show();
+})();
+</script>
+</body>
+</html>
