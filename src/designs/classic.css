@@ -114,3 +114,13 @@ body:has(.cs) main{flex:1;display:flex;flex-direction:column;min-height:0}
 @media (max-height:720px){.sl-txt p{display:none}.ci{padding:10px 0}}
 @media (max-width:1000px){body:has(.cs){display:block}.cs{height:520px}.cq-g{grid-template-columns:repeat(2,1fr)}}
 @media (prefers-reduced-motion:reduce){.cq::before,.cq::after,.cq-i{animation:none}}
+
+/* ===== v5.2: more spread between tiles and info items, shorter band ===== */
+.cq{padding:8px 0 12px}
+.cq-g{max-width:1100px;gap:clamp(20px,3.4vw,48px)}
+.cq-t{padding:9px 10px 9px;gap:3px;border-radius:14px}
+.cq-i svg{width:36px;height:36px}.cq-t b{font-size:14px}.cq-t b::after{margin-top:4px}
+.ci{padding:12px 0}.ci-g{max-width:1180px;margin-inline:auto;gap:clamp(24px,5vw,72px)}
+.ci-c{gap:16px}
+@media (max-width:1000px){.cq-g{gap:14px}}
+.ci-g{grid-template-columns:.85fr 1.4fr 1.15fr}
