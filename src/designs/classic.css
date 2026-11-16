@@ -133,3 +133,9 @@ body:has(.cs) .cq{flex:1.15;display:flex;align-items:center;padding:14px 0;borde
 body:has(.cs) .cq .cq-g{width:min(1100px,100% - 48px)}
 .sl-in{align-items:flex-end;padding-bottom:clamp(44px,9vh,84px)}
 @media (max-width:1000px){body:has(.cs) main{flex:none}body:has(.cs) .ci,body:has(.cs) .cq{display:block;padding:20px 0}}
+
+/* ===== v5.4: slightly bigger quick-link tiles ===== */
+.cq-t{padding:14px 12px 13px;gap:5px;border-radius:16px}
+.cq-i svg{width:48px;height:48px}.cq-t b{font-size:16px}.cq-t b::after{margin-top:6px}
+.cq-g{max-width:1160px}
+@media (max-height:700px){.cq-t{padding:10px 10px 9px}.cq-i svg{width:40px;height:40px}.cq-t b{font-size:15px}}
