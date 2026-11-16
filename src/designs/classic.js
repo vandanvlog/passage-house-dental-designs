@@ -16,7 +16,8 @@
   dots.forEach(function (d) { d.addEventListener('click', function () { show(parseInt(d.dataset.go, 10)); start(); }); });
   root.addEventListener('mouseenter', stop); root.addEventListener('mouseleave', start);
   root.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { show(i + 1); start(); } if (e.key === 'ArrowLeft') { show(i - 1); start(); } });
-  show(0); start();
+  var q = parseInt(new URLSearchParams(location.search).get('slide'), 10);
+  if (q >= 0) { show(q); } else { show(0); start(); }
 })();
 
 /* measure the info band so the hero photo can continue behind it */

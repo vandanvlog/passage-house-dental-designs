@@ -41,7 +41,7 @@ const tiles = (c) => `<section class="cq"><div class="wrap cq-g">${[['treatments
 const slides = [
   { bg: 'hero-clinic', alt: 'A bright, calm, modern dental treatment room', h1: 'Welcome to Passage House Dental Care, Bristol', h2: 'Working with you to provide amazing dental care from check-ups to dental implants', p: 'A friendly, professional and caring dental team.', to: 'team' },
   { bg: 'portrait-teen', alt: 'Smiling teenager with discreet braces', h1: 'Orthodontics', h2: 'Specialist braces for children and adults', p: 'Metal, ceramic and Invisalign with specialist orthodontist Dr Ben Cross.', to: 'treatments/orthodontics', portrait: true },
-  { bg: 'hygienist', alt: 'Dental hygienist preparing for an appointment', h1: 'Hygiene and gum care', h2: 'Healthy gums and a fresh, clean smile', p: 'Professional cleaning with our hygienist. No referral needed.', to: 'treatments/hygienist' },
+  { bg: 'hygienist', alt: 'Dental hygienist preparing for an appointment', h1: 'Hygiene and gum care', h2: 'Healthy gums and a fresh, clean smile', p: 'Professional cleaning with our hygienist. No referral needed.', to: 'treatments/hygienist', portrait: true },
   { bg: 'implants-still', alt: 'Dental implant replica and teeth model on marble', h1: 'Dental implants', h2: 'Permanent, natural-looking replacement teeth', p: 'Led by Dr Brad Hall, who has a special interest in implants.', to: 'treatments/dental-implants' },
 ];
 

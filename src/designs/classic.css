@@ -1,7 +1,7 @@
 /* CLASSIC - structure of the current website, three colourways: c1 Sage, c2 Navy & Teal, c3 Plum & Coral */
-html[data-design="c1"]{--bg:#F3F6F0;--bg2:#E3ECDB;--card:#fff;--fg:#22332A;--mute:#566A5D;--line:#D3DECB;--accent:#2B463A;--accent-fg:#fff;--tile:#6F8C7B;--pop:#D2A64C;--pop-fg:#241a05;--gold-t:#7A5C1E;--soft:#DDE9D4;--soft2:#C2D6B6}
-html[data-design="c2"]{--bg:#F4F7FA;--bg2:#E3EBF3;--card:#fff;--fg:#17283D;--mute:#56677C;--line:#D5DFEA;--accent:#18284A;--accent-fg:#fff;--tile:#5D6F94;--pop:#1FA6AC;--pop-fg:#fff;--gold-t:#0F7479;--soft:#D9EDF0;--soft2:#B7DDE1}
-html[data-design="c3"]{--bg:#FAF4F2;--bg2:#F1E3DF;--card:#fff;--fg:#35222F;--mute:#6F5A68;--line:#E6D2CD;--accent:#3A2340;--accent-fg:#fff;--tile:#86698E;--pop:#FF7B67;--pop-fg:#2a0f0a;--gold-t:#B8402E;--soft:#F6DAD4;--soft2:#EDBFB5}
+html[data-design="c1"]{--bg:#F3F6F0;--bg2:#E3ECDB;--card:#fff;--fg:#22332A;--mute:#566A5D;--line:#D3DECB;--accent:#52806A;--accent-fg:#fff;--tile:#86AA96;--pop:#D2A64C;--pop-fg:#241a05;--gold-t:#7A5C1E;--soft:#DDE9D4;--soft2:#C2D6B6}
+html[data-design="c2"]{--bg:#F4F7FA;--bg2:#E3EBF3;--card:#fff;--fg:#17283D;--mute:#56677C;--line:#D5DFEA;--accent:#2F6CA6;--accent-fg:#fff;--tile:#73A0CC;--pop:#1FA6AC;--pop-fg:#fff;--gold-t:#0F7479;--soft:#D9EDF0;--soft2:#B7DDE1}
+html[data-design="c3"]{--bg:#FAF4F2;--bg2:#F1E3DF;--card:#fff;--fg:#35222F;--mute:#6F5A68;--line:#E6D2CD;--accent:#7C5C8E;--accent-fg:#fff;--tile:#AB8EBA;--pop:#FF7B67;--pop-fg:#2a0f0a;--gold-t:#B8402E;--soft:#F6DAD4;--soft2:#EDBFB5}
 html[data-design^="c"]{--r:14px;--f-display:'Montserrat',system-ui,sans-serif;--f-body:'Nunito Sans',system-ui,sans-serif}
 body{font-size:17.5px}
 h1,h2,h3,h4{font-weight:700;letter-spacing:-.01em}
@@ -156,3 +156,14 @@ body:has(.cs) .sl-arrow{margin-top:calc(20px - var(--ov,110px) / 2)}
   body:has(.cs) .sl-dots{bottom:14px}
   body:has(.cs) .sl-arrow{margin-top:20px}
 }
+
+/* ===== v5.9: lighter theme, photo more visible ===== */
+.sl-bg::after{background:linear-gradient(90deg,color-mix(in srgb,var(--accent) 78%,transparent) 0%,color-mix(in srgb,var(--accent) 42%,transparent) 50%,color-mix(in srgb,var(--accent) 6%,transparent) 100%)}
+.sl.portrait .sl-bg::after{background:linear-gradient(90deg,var(--accent) 0%,color-mix(in srgb,var(--accent) 40%,transparent) 38%,transparent 100%)}
+.sl-txt h1,.sl-txt h2,.sl-txt p{text-shadow:0 2px 14px rgba(0,0,0,.28)}
+.cf{background:color-mix(in srgb,var(--accent) 88%,#000)}
+body:has(.cs) .ci{background:color-mix(in srgb,var(--accent) 62%,transparent)}
+.sl.portrait .sl-bg img{object-position:50% 18%}
+.ci-c a.u{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.cf-l a{color:rgba(255,255,255,.92)}.cf{color:rgba(255,255,255,.85)}
+.ci-c p{color:rgba(255,255,255,.92)}
