@@ -125,7 +125,7 @@ const HARBOUR = {
   shell: (c, body) => `
 <header class="hh"><div class="wrap hh-in">
   <a class="hh-logo" href="${c.u()}" aria-label="Passage House Dental Care - home"><img src="${c.sh('assets/lockup-navy.png')}" alt="Passage House Dental Care" width="210" height="78"></a>
-  ${burger('Menu')}
+  <div class="hh-act"><a class="hh-phone" href="${practice.phoneHref}" aria-label="Call ${practice.phone}">${icon('phone', 18)}<span>${practice.phone}</span></a><a class="btn hh-book" href="${c.u('book')}">Book online</a>${burger('Menu')}</div>
 </div>
 <div class="hmenu" data-menu><div class="wrap hmenu-in"><div class="hm-main">${megaInner(c)}</div>
   <aside class="hm-side"><p class="ey">Practice</p><ul>${links.map(([l, p], i) => `<li style="--i:${i}"><a href="${c.u(p)}">${l}</a></li>`).join('')}</ul>

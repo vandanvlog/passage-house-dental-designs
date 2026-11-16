@@ -46,3 +46,13 @@ em{font-style:italic;color:var(--gold-t)}
 
 @media (max-width:960px){.hmenu-in{grid-template-columns:1fr}.hb-grid{grid-template-columns:1fr}.hb-ph{max-width:380px}.tiles,.ages{grid-template-columns:repeat(2,1fr)}.acc summary{grid-template-columns:52px 1fr 40px}.acc summary small{display:none}.hb-badge{left:-8px}}
 @media (max-width:560px){.tiles{grid-template-columns:1fr}.hh-logo img{height:58px}}
+
+
+/* ===== v4.1: logo left, menu button right, in one row ===== */
+.hh-in{flex-direction:row;justify-content:space-between;align-items:center;gap:20px;padding:10px 0}
+.hh-logo img{height:60px}.scrolled .hh-logo img{height:48px}
+.hh-act{display:flex;align-items:center;gap:14px}
+.hh-phone{display:inline-flex;align-items:center;gap:8px;font-weight:800;color:var(--accent);white-space:nowrap}
+.hh-book{padding:12px 22px;font-size:15px}
+.hh .burger{margin:0;padding:11px 20px}
+@media (max-width:760px){.hh-phone span{display:none}.hh-phone{width:44px;height:44px;justify-content:center;border:1px solid var(--line);border-radius:50%;background:var(--card)}.hh-book{display:none}.hh-logo img,.scrolled .hh-logo img{height:48px}}
