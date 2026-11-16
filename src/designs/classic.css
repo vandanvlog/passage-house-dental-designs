@@ -139,3 +139,8 @@ body:has(.cs) .cq .cq-g{width:min(1100px,100% - 48px)}
 .cq-i svg{width:48px;height:48px}.cq-t b{font-size:16px}.cq-t b::after{margin-top:6px}
 .cq-g{max-width:1160px}
 @media (max-height:700px){.cq-t{padding:10px 10px 9px}.cq-i svg{width:40px;height:40px}.cq-t b{font-size:15px}}
+
+/* ===== v5.5: hero fades into the info band ===== */
+.cs::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:clamp(80px,15vh,150px);z-index:2;pointer-events:none;
+  background:linear-gradient(to bottom,transparent 0%,color-mix(in srgb,var(--accent) 22%,transparent) 30%,color-mix(in srgb,var(--accent) 62%,transparent) 65%,var(--accent) 100%)}
+.sl-dots{z-index:3}.sl-arrow{z-index:3}
