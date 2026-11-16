@@ -1,0 +1,17 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Choose the band style</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#EEF1F5;color:#17283D;font:400 17px/1.5 system-ui,Segoe UI,sans-serif}
+.w{width:min(1000px,100% - 32px);margin:0 auto;padding:28px 0 60px}
+h1{font-size:1.9rem;margin:0 0 6px}p.s{margin:0 0 24px;color:#56677C}
+.opt{background:#fff;border:1px solid #D5DFEA;border-radius:16px;overflow:hidden;margin-bottom:26px}
+.opt h2{margin:0;padding:14px 18px;font-size:1.15rem;display:flex;gap:12px;align-items:baseline}.opt h2 b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#18284A;color:#fff;font-size:1rem}
+.opt h2 span{font-weight:400;color:#56677C;font-size:.95rem}
+.vp{position:relative;overflow:hidden;background:#000}.vp iframe{position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0}
+</style></head><body><div class="w">
+<h1>Choose the band style</h1><p class="s">The same home page with three different ways the phone, hours and address band meets the photo. Tell me A, B or C.</p>
+<div class="opt"><h2><b>A</b>Clean solid band <span>Simple, no overlap. The look you said was good before.</span></h2><div class="vp"><iframe src="design-7/index.html" title="Option A"></iframe></div></div>
+<div class="opt"><h2><b>B</b>Soft edge <span>Solid band, with a short gentle blend where the photo meets it.</span></h2><div class="vp"><iframe src="design-7/index.html?band=b" title="Option B"></iframe></div></div>
+<div class="opt"><h2><b>C</b>See-through band <span>The photo continues behind the band, kept neat and readable.</span></h2><div class="vp"><iframe src="design-7/index.html?band=c" title="Option C"></iframe></div></div>
+</div>
+<script>function f(){document.querySelectorAll('.vp').forEach(function(v){var s=v.clientWidth/1440;v.style.height=(900*s)+'px';v.firstElementChild.style.transform='scale('+s+')'})}f();addEventListener('resize',f)</script>
+</body></html>

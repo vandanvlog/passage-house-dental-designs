@@ -18,3 +18,9 @@
   root.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { show(i + 1); start(); } if (e.key === 'ArrowLeft') { show(i - 1); start(); } });
   show(0); start();
 })();
+
+/* measure the info band so the hero photo can continue behind it */
+(function () {
+  function m() { var ci = document.querySelector('.ci'); if (ci) document.documentElement.style.setProperty('--ov', ci.offsetHeight + 'px'); }
+  window.addEventListener('load', m); window.addEventListener('resize', m); m();
+})();

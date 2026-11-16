@@ -37,8 +37,8 @@ for (const file of walk(dist).filter((p) => p.endsWith('.html') && /design-\d/.t
     return `href="#/${r}" data-go="${r}"`;
   });
   // css/js -> markers (inlined once per design at load time)
-  h = h.replace(/<link rel="stylesheet" href="[^"]*base\.css">\s*/, '<!--CSS-->').replace(/<link rel="stylesheet" href="[^"]*style\.css">\s*/, '');
-  h = h.replace(/<script src="[^"]*common\.js" defer><\/script>\s*/, '<!--JS-->').replace(/<script src="[^"]*extra\.js" defer><\/script>\s*/, '');
+  h = h.replace(/<link rel="stylesheet" href="[^"]*base\.css">\s*/, '<!--CSS-->').replace(/<link rel="stylesheet" href="[^"]*style\.css[^"]*">\s*/, '');
+  h = h.replace(/<script src="[^"]*common\.js" defer><\/script>\s*/, '<!--JS-->').replace(/<script src="[^"]*extra\.js[^"]*" defer><\/script>\s*/, '');
   for (const m of h.matchAll(assetRe)) used.add(m[1]);
   pack.pages[route] = h;
 }

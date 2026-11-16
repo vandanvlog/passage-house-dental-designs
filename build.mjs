@@ -16,7 +16,7 @@ mkdirSync(dist, { recursive: true });
 for (const n of readdirSync(dist)) rmSync(join(dist, n), { recursive: true, force: true });
 cpSync(join(root, 'shared'), join(dist, 'shared'), { recursive: true });
 
-let count = 0;
+let count = 0; const BUILD = Date.now();
 for (const D of designs) {
   const out = join(dist, D.folder);
   mkdirSync(out, { recursive: true });
@@ -41,13 +41,13 @@ for (const D of designs) {
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="${D.fonts}" rel="stylesheet">
 <link rel="stylesheet" href="${c.sh('base.css')}">
-<link rel="stylesheet" href="${c.d('style.css')}">
+<link rel="stylesheet" href="${c.d('style.css')}?v=${BUILD}">
 </head>
 <body ${D.bodyAttrs || ''}>
 <a class="skip" href="#main">Skip to content</a>
 ${D.shell(c, body)}
 <script src="${c.sh('common.js')}" defer></script>
-${D.jsFile ? `<script src="${c.d('extra.js')}" defer></script>` : ''}
+${D.jsFile ? `<script src="${c.d('extra.js')}?v=${BUILD}" defer></script>` : ''}
 </body>
 </html>`;
     html = html.replaceAll('%%SH%%', c.sh(''));
