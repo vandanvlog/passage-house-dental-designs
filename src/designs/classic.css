@@ -144,3 +144,13 @@ body:has(.cs) .cq .cq-g{width:min(1100px,100% - 48px)}
 .cs::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:clamp(80px,15vh,150px);z-index:2;pointer-events:none;
   background:linear-gradient(to bottom,transparent 0%,color-mix(in srgb,var(--accent) 22%,transparent) 30%,color-mix(in srgb,var(--accent) 62%,transparent) 65%,var(--accent) 100%)}
 .sl-dots{z-index:3}.sl-arrow{z-index:3}
+
+/* ===== v5.6: info band is see-through (opacity) so the hero photo shows behind it; no fade ===== */
+.cs::after{display:none}
+body:has(.cs){--ov:clamp(90px,14vh,130px)}
+body:has(.cs) main{flex:0 0 calc(clamp(340px,56vh,560px) + var(--ov))}
+body:has(.cs) .ci{margin-top:calc(-1 * var(--ov));position:relative;z-index:5;background:color-mix(in srgb,var(--accent) 58%,transparent);-webkit-backdrop-filter:blur(8px) saturate(130%);backdrop-filter:blur(8px) saturate(130%);border-top:1px solid rgba(255,255,255,.16);padding:0}
+body:has(.cs) .sl-in{padding-bottom:calc(clamp(30px,6vh,56px) + var(--ov))}
+body:has(.cs) .sl-dots{bottom:calc(var(--ov) + 14px)}
+body:has(.cs) .sl-arrow{margin-top:calc(20px - var(--ov) / 2)}
+@media (max-width:1000px){body:has(.cs){--ov:0px}body:has(.cs) .ci{background:var(--accent);backdrop-filter:none;-webkit-backdrop-filter:none}}
